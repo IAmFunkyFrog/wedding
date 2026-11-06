@@ -419,11 +419,34 @@
                         <svg class="decor-note text-no-paint sm-main_groom-name item-animation item-aright item-active" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
                             <path id="curve-top" d="M10,70 Q100,-30 200,70" fill="transparent" style=""></path>
                             <text fill="black" font-size="20">
-                                <textPath href="#curve-top" startOffset="25%" data-sm-text="GROOM_TEXT" title="жених">жених</textPath>
+          <textPath href="#curve-top" startOffset="25%" data-sm-text="GROOM_TEXT" title="жених">жених</textPath>
                             </text>
                         </svg>
-                        <svg width="16" height="23" class="sm-main-arr-groom item-animation item-abottom text-no-paint-stroke item-active" viewBox="0 0 16 23" fill="none">
-                            <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-1"></use>
+
+                        <!-- Стрелочка с текстурой рисунка мелком / карандашом -->
+                        <svg width="28" height="36" class="sm-main-arr-groom item-animation item-abottom item-active" viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Фильтр эффекта мелка (неровные края и белые просветы бумаги) -->
+                                <filter id="chalk-effect" x="-20%" y="-20%" width="140%" height="140%">
+                                    <!-- Генерируем мелкую зернистость бумаги -->
+                                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" result="noise" />
+                                    <!-- Делаем края линии шероховатыми и живыми -->
+                                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="roughened" />
+                                    <!-- Создаем прозрачные потертости внутри самого штриха -->
+                                    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 3.2 -0.65" result="chalk-holes" />
+                                    <feComposite in="roughened" in2="chalk-holes" operator="in" />
+                                </filter>
+                            </defs>
+
+                            <g filter="url(#chalk-effect)" stroke="#b82506" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <!-- Основная дуга (чуть переменная толщина за счет двойного штриха) -->
+                                <path d="M18 6 C 8 28, 12 46, 41 53" stroke-width="4.2" />
+                                <path d="M17.5 7 C 9 27, 13 45, 40 52.5" stroke-width="2.5" opacity="0.85" />
+                                <!-- Верхний длинный усик наконечника -->
+                                <path d="M31 36 C 35 43, 39 49, 42 52" stroke-width="4.2" />
+                                <!-- Нижний короткий усик наконечника -->
+                                <path d="M42 52 C 39 55, 36 57, 33 59" stroke-width="4.2" />
+                            </g>
                         </svg>
 
                         <div class="item-animation item-aright item-active">
@@ -583,17 +606,31 @@
             </div>
         </div>
 
-        <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
+       <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
             <path id="curve-top-location" d="M10,70 Q100,-30 200,70" fill="transparent"></path>
             <text fill="black" font-size="20">
                 <textPath href="#curve-top-location" startOffset="18%" data-sm-text="LOCATION_SUBTITLE" title="где">где</textPath>
             </text>
         </svg>
 
-        <svg class="sm-location__decor-arr item-animation item-abottom text-no-paint-stroke" width="9" height="24" viewBox="0 0 9 24" fill="none">
-            <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-4"></use>
-        </svg>
+      <!-- Меловая стрелочка: чуть выше -->
+        <svg width="28" height="36" class="item-animation item-abottom item-active" viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 10px auto; display: block; transform: translate(-110px, 60px);">
+            <defs>
+                <filter id="chalk-effect-location" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="roughened" />
+                    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 3.2 -0.65" result="chalk-holes" />
+                    <feComposite in="roughened" in2="chalk-holes" operator="in" />
+                </filter>
+            </defs>
 
+            <g filter="url(#chalk-effect-location)" stroke="#b82506" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 C 8 28, 12 46, 41 53" stroke-width="4.2" />
+                <path d="M17.5 7 C 9 27, 13 45, 40 52.5" stroke-width="2.5" opacity="0.85" />
+                <path d="M31 36 C 35 43, 39 49, 42 52" stroke-width="4.2" />
+                <path d="M42 52 C 39 55, 36 57, 33 59" stroke-width="4.2" />
+            </g>
+        </svg>
         <!-- Кнопка и смещенное ниже по диагонали слово «нажимай» -->
         <div class="item-animation item-atop" style="text-align: center; margin-bottom: 85px;">
             <div style="position: relative; display: inline-block;">
@@ -605,7 +642,6 @@
                 </span>
             </div>
         </div>
-
     </div>
 
     <div class="item-animation item-atop building-text">
@@ -627,15 +663,30 @@
             </div>
         </div>
 
-        <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
+      <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
             <path id="curve-top-location-boat" d="M10,70 Q100,-30 200,70" fill="transparent" style=""></path>
             <text fill="black" font-size="20">
                 <textPath href="#curve-top-location-boat" startOffset="18%" data-sm-text="LOCATION_SUBTITLE" title="где">где</textPath>
             </text>
         </svg>
 
-        <svg class="sm-location__decor-arr item-animation item-abottom text-no-paint-stroke" width="9" height="24" viewBox="0 0 9 24" fill="none">
-            <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-4"></use>
+        <!-- Меловая стрелочка (секция теплохода) на тех же координатах -->
+        <svg width="28" height="36" class="item-animation item-abottom item-active" viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 10px auto; display: block; transform: translate(-110px, 60px);">
+            <defs>
+                <filter id="chalk-effect-location-boat" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="roughened" />
+                    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 3.2 -0.65" result="chalk-holes" />
+                    <feComposite in="roughened" in2="chalk-holes" operator="in" />
+                </filter>
+            </defs>
+
+            <g filter="url(#chalk-effect-location-boat)" stroke="#b82506" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 C 8 28, 12 46, 41 53" stroke-width="4.2" />
+                <path d="M17.5 7 C 9 27, 13 45, 40 52.5" stroke-width="2.5" opacity="0.85" />
+                <path d="M31 36 C 35 43, 39 49, 42 52" stroke-width="4.2" />
+                <path d="M42 52 C 39 55, 36 57, 33 59" stroke-width="4.2" />
+            </g>
         </svg>
 
         <!-- Кнопка и слово «нажимай» ниже по диагонали -->
