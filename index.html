@@ -539,6 +539,7 @@
                             <text fill="black" font-size="20" text-anchor="middle">
                                 <textPath href="#curve-top-calendar" startOffset="62%" data-sm-text="MAIN_TEXT_CALENDAR" title="когда">когда</textPath>
                             </text>
+                            
                         </svg>
                     </div>
 
@@ -547,6 +548,7 @@
                             <svg width="42" height="50" viewBox="0 0 37 44" fill="none" class="text-no-paint-stroke">
                                 <use xlink:href="/sitemaker/templates/template90/img/decor-sprite.svg#decor-5"></use>
                             </svg>
+                            
                         </div>
                         <div class="sm-calendar__month item-animation item-abottom item-active"><span data-sm-tmonth="">Август</span></div>
                         <div class="sm-calendar js-calendar-body item-animation item-atop item-active" data-lang="de" data-class-name-day="" data-class-day="" data-wedding-day-class="sm-number-active text-paint-background-before"><span class="sm-calendar-day-week-title ">пн</span><span class="sm-calendar-day-week-title ">вт</span><span class="sm-calendar-day-week-title ">ср</span><span class="sm-calendar-day-week-title ">чт</span><span class="sm-calendar-day-week-title ">пт</span><span class="sm-calendar-day-week-title  sm-weekend">сб</span><span class="sm-calendar-day-week-title  sm-weekend">вс</span><span class="sm-calendar-day "></span><span class="sm-calendar-day "></span><span class="sm-calendar-day "></span><span class="sm-calendar-day "></span><span class="sm-calendar-day "></span><span class="sm-calendar-day "></span><span class="sm-calendar-day ">1</span><span class="sm-calendar-day ">2</span><span class="sm-calendar-day ">3</span><span class="sm-calendar-day ">4</span><span class="sm-calendar-day ">5</span><span class="sm-calendar-day ">6</span><span class="sm-calendar-day ">7</span><span class="sm-calendar-day ">8</span><span class="sm-calendar-day ">9</span><span class="sm-calendar-day ">10</span><span class="sm-calendar-day ">11</span><span class="sm-calendar-day ">12</span><span class="sm-calendar-day ">13</span>
@@ -1056,11 +1058,31 @@
                             </svg>
                         </div>
                         <div class="sm-img item-animation item-aleft">
-                            <img src="https://sun9-7.vkuserphoto.ru/s/v1/ig2/0B0ppE-4aHPWOqcZBgGdGc7VrCUXO51srzuXn_u-1QJSAQ-Z8JPTJQbWWXAegC099vGXw_Y3jruTk0U0Fe0f4cHb.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440,2560x2560&from=bu&u=uTrYdWrZBrtRCB6pn5DNBRguJI5RzwIQ55OVRnFAqjA&cs=2560x0" data-sm-src="BYE_PHOTO_ONE" alt="">
+                    <img src="https://sun9-7.vkuserphoto.ru/s/v1/ig2/0B0ppE-4aHPWOqcZBgGdGc7VrCUXO51srzuXn_u-1QJSAQ-Z8JPTJQbWWXAegC099vGXw_Y3jruTk0U0Fe0f4cHb.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440,2560x2560&from=bu&u=uTrYdWrZBrtRCB6pn5DNBRguJI5RzwIQ55OVRnFAqjA&cs=2560x0" data-sm-src="BYE_PHOTO_ONE" alt="">
                         </div>
-                        <svg class="sm_decor-arr-bye item-animation item-atop text-no-paint-stroke" width="11" height="25" viewBox="0 0 11 25" fill="none">
-                            <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-7"></use>
+
+                        <!-- Меловая стрелочка (смотрит вверх и вправо) -->
+                        <svg width="28" height="36" class="sm_decor-arr-bye item-animation item-atop item-active" viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="chalk-effect-bye" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" result="noise" />
+                                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="roughened" />
+                                    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 3.2 -0.65" result="chalk-holes" />
+                                    <feComposite in="roughened" in2="chalk-holes" operator="in" />
+                                </filter>
+                            </defs>
+
+                            <g filter="url(#chalk-effect-bye)" stroke="#b82506" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <!-- Основная дуга (изгиб вверх и вправо) -->
+                                <path d="M26 53 C 17 38, 18 24, 29 13" stroke-width="4.2" />
+                                <path d="M25.5 52.5 C 16.5 37.5, 17.5 23.5, 28.5 13.5" stroke-width="2.5" opacity="0.85" />
+                                <!-- Левый короткий усик наконечника -->
+                                <path d="M23 15 C 25 14, 27 14, 29 13" stroke-width="4.2" />
+                                <!-- Правый длинный усик наконечника -->
+                                <path d="M29 13 C 31 17, 31 22, 29 26" stroke-width="4.2" />
+                            </g>
                         </svg>
+
                         <svg class="decor-note text-no-paint sm-decor-bye-1 item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
                             <path id="curve-top-bye-1" d="M10,70 Q100,-30 200,70" fill="transparent" style=""></path>
                             <text fill="black" font-size="20">
