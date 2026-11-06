@@ -570,64 +570,92 @@
     </section>
 
     <section class="sm-location sm-section sm-section sm-edit" data-type="3">
-        <div class="sm-container">
+    <div class="sm-container">
 
-            <div class="sm-section__text">
-                <h2 class="sm-title item-animation item-aleft small-title" data-sm-text="LOCATION_TITLE" title="Торжественная регистрация">Торжественная регистрация</h2>
-                <div class="sm-text text-paint-border item-animation item-aright" data-sm-text="LOCATION_TEXT">Дворец бракосочетания №1<br>Санкт-Петербург, Английская набережная, 28</div>
+        <div class="sm-section__text">
+            <h2 class="sm-title item-animation item-aleft small-title" data-sm-text="LOCATION_TITLE" title="Торжественная регистрация">Торжественная регистрация</h2>
+            <div class="sm-text text-paint-border item-animation item-aright" data-sm-text="LOCATION_TEXT">Дворец бракосочетания №1<br>Санкт-Петербург, Английская набережная, 28</div>
+        </div>
+
+        <div class="sm-location__image sm-shared__image__decor sm-js-animation item-animation item-atop" style="--decor-width: 434px;">
+            <div class="sm-img">
+                <img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/uvzSeCSxfUS09pgkL_7LX_KPKm6ubcfjw_kkiauLlHsoxtju-DbgbgnrLCrDQhpn5_izvZoZDFYwZzK_OvUGZ-hA.jpg?quality=95&as=32x31,48x46,72x69,108x104,160x154,240x232,360x347,480x463,540x521,640x617,720x695,1080x1042,1280x1235,1440x1389,2560x2470&from=bu&u=ORkOCp9hwjrbW7RP-QRN-oy-yqhK0qF4ANWfqApBt1k&cs=2560x0" data-sm-src="LOCATION_PHOTO" alt="">
             </div>
-            <div class="sm-location__image sm-shared__image__decor sm-js-animation item-animation item-atop" style="--decor-width: 434px;">
-                <div class="sm-img">
-                    <img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/uvzSeCSxfUS09pgkL_7LX_KPKm6ubcfjw_kkiauLlHsoxtju-DbgbgnrLCrDQhpn5_izvZoZDFYwZzK_OvUGZ-hA.jpg?quality=95&as=32x31,48x46,72x69,108x104,160x154,240x232,360x347,480x463,540x521,640x617,720x695,1080x1042,1280x1235,1440x1389,2560x2470&from=bu&u=ORkOCp9hwjrbW7RP-QRN-oy-yqhK0qF4ANWfqApBt1k&cs=2560x0" data-sm-src="LOCATION_PHOTO" alt="">
-                </div>
-            </div>
-            <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
-                <path id="curve-top-location" d="M10,70 Q100,-30 200,70" fill="transparent" style=""></path>
-                <text fill="black" font-size="20">
-                    <textPath href="#curve-top-location" startOffset="18%" data-sm-text="LOCATION_SUBTITLE" title="где">где</textPath>
-                </text>
-            </svg>
-            <svg class="sm-location__decor-arr item-animation item-abottom text-no-paint-stroke" width="9" height="24" viewBox="0 0 9 24" fill="none">
-                <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-4"></use>
-            </svg>
-            <div class="item-animation item-atop">
+        </div>
+
+        <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
+            <path id="curve-top-location" d="M10,70 Q100,-30 200,70" fill="transparent"></path>
+            <text fill="black" font-size="20">
+                <textPath href="#curve-top-location" startOffset="18%" data-sm-text="LOCATION_SUBTITLE" title="где">где</textPath>
+            </text>
+        </svg>
+
+        <svg class="sm-location__decor-arr item-animation item-abottom text-no-paint-stroke" width="9" height="24" viewBox="0 0 9 24" fill="none">
+            <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-4"></use>
+        </svg>
+
+        <!-- Кнопка и смещенное ниже по диагонали слово «нажимай» -->
+        <div class="item-animation item-atop" style="text-align: center; margin-bottom: 85px;">
+            <div style="position: relative; display: inline-block;">
                 <a class="sm-btn text-paint-text text-paint-border" data-sm-href="LOCATION_MAP" href="https://yandex.ru/maps/-/CXvUqSkw" target="_blank">Как добраться</a>
+
+                <span class="decor-note text-no-paint item-animation item-aright" 
+                      style="position: absolute; right: -85px; bottom: -80px; transform: rotate(-15deg); font-size: 18px; font-weight: 500; white-space: nowrap; pointer-events: none; letter-spacing: 0.5px;">
+                    нажимай
+                </span>
             </div>
         </div>
-        <div class="item-animation item-atop building-text">
-            Дорогие гости! Приглашаем Вас разделить с нами самый волнительный момент — официальную регистрацию нашего брака. Пожалуйста, приезжайте немного заранее, чтобы мы все успели встретиться. Будем ждать Вас во Дворце!
-        </div>
-    </section>
+
+    </div>
+
+    <div class="item-animation item-atop building-text">
+        Дорогие гости! Приглашаем Вас разделить с нами самый волнительный момент — официальную регистрацию нашего брака. Пожалуйста, приезжайте немного заранее, чтобы мы все успели встретиться. Будем ждать Вас во Дворце!
+    </div>
+</section>
 
     <section class="sm-location sm-section sm-section sm-edit" data-type="3">
-        <div class="sm-container">
+    <div class="sm-container">
 
-            <div class="sm-section__text">
-                <h2 class="sm-title item-animation item-aleft small-title" data-sm-text="LOCATION_TITLE">Продолжение вечера на теплоходе</h2>
-                <div class="sm-text text-paint-border item-animation item-aright" data-sm-text="LOCATION_TEXT"><br>Санкт-Петербург, Причал на набережной реки Фонтанки, 64</div>
+        <div class="sm-section__text">
+            <h2 class="sm-title item-animation item-aleft small-title" data-sm-text="LOCATION_TITLE">Продолжение вечера на теплоходе</h2>
+            <div class="sm-text text-paint-border item-animation item-aright" data-sm-text="LOCATION_TEXT"><br>Санкт-Петербург, Причал на набережной реки Фонтанки, 64</div>
+        </div>
+
+        <div class="sm-location__image sm-shared__image__decor sm-js-animation item-animation item-atop" style="--decor-width: 434px;">
+            <div class="sm-img">
+                <img src="https://sun9-40.vkuserphoto.ru/s/v1/ig2/K-DkT60uHzVgUnqR7x220bPXgd5AH-6qhKaRnbmAtCDAl8brscRJjIXT3vcUs2Pfa0CTSYTPulvzASM-uJkEV0sl.jpg?quality=95&as=32x58,48x86,72x130,108x194,160x288,240x432,360x648,480x864,540x971,640x1151,720x1295,1080x1943,1280x2303,1423x2560&from=bu&u=P6jo-xn7SW2vxBWpbBNxJazr_CUNerUU2ko7Itq_7W4&cs=1423x0" data-sm-src="LOCATION_PHOTO" alt="">
             </div>
-            <div class="sm-location__image sm-shared__image__decor sm-js-animation item-animation item-atop" style="--decor-width: 434px;">
-                <div class="sm-img">
-                    <img src="https://sun9-40.vkuserphoto.ru/s/v1/ig2/K-DkT60uHzVgUnqR7x220bPXgd5AH-6qhKaRnbmAtCDAl8brscRJjIXT3vcUs2Pfa0CTSYTPulvzASM-uJkEV0sl.jpg?quality=95&as=32x58,48x86,72x130,108x194,160x288,240x432,360x648,480x864,540x971,640x1151,720x1295,1080x1943,1280x2303,1423x2560&from=bu&u=P6jo-xn7SW2vxBWpbBNxJazr_CUNerUU2ko7Itq_7W4&cs=1423x0" data-sm-src="LOCATION_PHOTO" alt="">
-                </div>
-            </div>
-            <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
-                <path id="curve-top-location" d="M10,70 Q100,-30 200,70" fill="transparent" style=""></path>
-                <text fill="black" font-size="20">
-                    <textPath href="#curve-top-location" startOffset="18%" data-sm-text="LOCATION_SUBTITLE" title="где">где</textPath>
-                </text>
-            </svg>
-            <svg class="sm-location__decor-arr item-animation item-abottom text-no-paint-stroke" width="9" height="24" viewBox="0 0 9 24" fill="none">
-                <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-4"></use>
-            </svg>
-            <div class="item-animation item-atop">
+        </div>
+
+        <svg class="decor-note text-no-paint sm-location__decor item-animation item-aright" viewBox="0 0 200 70" style="height: 70px; width: 200px;">
+            <path id="curve-top-location-boat" d="M10,70 Q100,-30 200,70" fill="transparent" style=""></path>
+            <text fill="black" font-size="20">
+                <textPath href="#curve-top-location-boat" startOffset="18%" data-sm-text="LOCATION_SUBTITLE" title="где">где</textPath>
+            </text>
+        </svg>
+
+        <svg class="sm-location__decor-arr item-animation item-abottom text-no-paint-stroke" width="9" height="24" viewBox="0 0 9 24" fill="none">
+            <use xlink:href="/sitemaker/templates/template90/img/arr-sprite.svg#arr-4"></use>
+        </svg>
+
+        <!-- Кнопка и слово «нажимай» ниже по диагонали -->
+        <div class="item-animation item-atop" style="text-align: center; margin-bottom: 85px;">
+            <div style="position: relative; display: inline-block;">
                 <a class="sm-btn text-paint-text text-paint-border" data-sm-href="LOCATION_MAP" href="https://yandex.ru/maps/-/CXvUF83D" target="_blank">Как добраться</a>
+
+                <span class="decor-note text-no-paint item-animation item-aright" 
+                      style="position: absolute; right: -85px; bottom: -80px; transform: rotate(-15deg); font-size: 18px; font-weight: 500; white-space: nowrap; pointer-events: none; letter-spacing: 0.5px;">
+                    нажимай
+                </span>
             </div>
         </div>
-        <div class="item-animation item-atop building-text">
-            Наша свадьба продолжится на борту теплохода! Мы отправимся в небольшое путешествие по каналам и рекам любимого города. Для Вас будет организован фуршет с закусками и напитками. Просим Вас собраться на причале строго к 16:45, так как теплоход отправится по расписанию. После завершения вечера мы отправимся в аэропорт, чтобы улететь в наше свадебное путешествие. Будем рады, если Вы проводите нас и пожелаете нам счастливого пути!
-        </div>
-    </section>
+
+    </div>
+
+    <div class="item-animation item-atop building-text">
+        Наша свадьба продолжится на борту теплохода! Мы отправимся в небольшое путешествие по каналам и рекам любимого города. Для Вас будет организован фуршет с закусками и напитками. Просим Вас собраться на причале строго к 16:45, так как теплоход отправится по расписанию. После завершения вечера мы отправимся в аэропорт, чтобы улететь в наше свадебное путешествие. Будем рады, если Вы проводите нас и пожелаете нам счастливого пути!
+    </div>
+</section>
     <!-- /section -->
 
      <section class="sm-time sm-section sm-edit" data-type="6">
