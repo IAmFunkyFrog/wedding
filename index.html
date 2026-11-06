@@ -847,14 +847,15 @@
         </div>
     </section>
     <section class="sm-questionnaire sm-section sm-modal sm-edit" data-type="9">
-
         <div class="sm-modal-close sm-quest-modal-close">X</div>
         <div class="sm-container text-paint-background-before">
             <div class="sm-questionnaire__head">
                 <div class="sm-title item-animation item-aleft">
                     <span data-sm-text="ANKETA_TITLE" title="Анкета гостя">Анкета гостя</span>
                 </div>
-                <div class="sm-text item-animation item-aright" data-sm-text="ANKETA_TEXT">Пожалуйста, подтвердите свое присутствие на мероприятии до</div>
+                <div class="sm-text item-animation item-aright" data-sm-text="ANKETA_TEXT">
+                    Пожалуйста, подтвердите свое присутствие на мероприятии до
+                </div>
                 <div class="sm-questionnaire__date item-animation item-abottom">
                     <span data-sm-bday="">14</span>
                     <span data-sm-bmonth-rod="">Июня</span>
@@ -863,51 +864,60 @@
             </div>
 
             <div class="sm-questionnaire__form item-animation item-atop">
-                <form class="sm-form">
-                    <div class="sm-form__block">
-                        <div class="sm-form__block__title">Ваше Имя и Фамилия</div>
-                        <input class="sm-form__input" type="text" placeholder="Ваше имя и фамилия" data-sm-anketa-name="">
-                    </div>
+                <form class="sm-form" id="guestForm">
+                    <!-- Контейнер для карточек гостей -->
+                    <div id="guestsList">
+                        <div class="sm-guest-card" data-guest-index="0" style="margin-bottom: 25px; border-bottom: 1px dashed rgba(0,0,0,0.15); padding-bottom: 20px;">
+                            <div class="sm-form__block">
+                                <div class="sm-form__block__title">Ваше Имя и Фамилия</div>
+                                <input class="sm-form__input" type="text" placeholder="Ваше имя и фамилия" name="guests[0][name]" data-sm-anketa-name="" required>
+                            </div>
 
-                    <div class="sm-form__block">
-                        <div class="sm-form__block__title" data-sm-text="ANKETA_QUESTION" title="Планируете ли Вы присутствовать?">Планируете ли Вы присутствовать?</div>
+                            <div class="sm-form__block">
+                                <div class="sm-form__block__title" data-sm-text="ANKETA_QUESTION">Планируете ли Вы присутствовать?</div>
+                                <div class="sm-form__item">
+                                    <label class="sm-form_checkbox">
+                                        <input class="sm-form_checkbox_input" type="radio" name="guests[0][presence]" value="Да" checked>
+                                        <span class="sm-form_checkbox_box"></span>
+                                        <span data-sm-text="ANKETA_ANSWER1">Да, с удовольствием</span>
+                                    </label>
+                                    <label class="sm-form_checkbox">
+                                        <input class="sm-form_checkbox_input" type="radio" name="guests[0][presence]" value="Нет">
+                                        <span class="sm-form_checkbox_box"></span>
+                                        <span data-sm-text="ANKETA_ANSWER2">К сожалению, не смогу</span>
+                                    </label>
+                                </div>
+                            </div>
 
-                        <div class="sm-form__item">
-                            <label class="sm-form_checkbox">
-                                <input class="sm-form_checkbox_input" type="radio" id="choice1" name="choice" value="1" data-answer="Да">
-                                <span class="sm-form_checkbox_box"></span>
-                                <span data-sm-text="ANKETA_ANSWER1">Да, с удовольствием</span>
-                            </label>
-                            <label class="sm-form_checkbox">
-                                <input class="sm-form_checkbox_input" type="radio" id="choice2" name="choice" value="2" data-answer="Нет">
-                                <span class="sm-form_checkbox_box"></span>
-                                <span data-sm-text="ANKETA_ANSWER2">К сожалению, не смогу</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="sm-form__block" data-sm-anketa-toggle="">
-                        <div class="sm-form__block__title" data-sm-text="ANKETA_QUESTION" data-sm-text="ANKETA_DRINKS_QUESTION">Ваши предпочтения по напиткам:</div>
-                        <div class="sm-form__drinks">
-                            <div class="sm-form__drinks-check" data-sm-anketa="1">
-                                <label class="sm-form_checkbox ct-alcotpl">
-                                    <input class="sm-form_checkbox_input" type="checkbox" id="" name="alco[]" value="">
-                                    <span class="sm-form_checkbox_box"></span>
-                                    <div data-sm-alcoitem=""></div>
-                                </label>
-                            <label class="sm-form_checkbox">
-                                    <input class="sm-form_checkbox_input" type="radio" id="choice1" name="choice" value="1" data-answer="Да">
-                                    <span class="sm-form_checkbox_box"></span>
-                                    <div data-sm-alcoitem="">Алкогольные</div>
-                                </label><label class="sm-form_checkbox">
-                                    <input class="sm-form_checkbox_input" type="radio" id="choice2" name="choice" value="2" data-answer="Нет">
-                                    <span class="sm-form_checkbox_box"></span>
-                                    <div data-sm-alcoitem="">Безалкогольные</div>
-                                </label>
+                            <div class="sm-form__block" data-sm-anketa-toggle="">
+                                <div class="sm-form__block__title">Ваши предпочтения по напиткам:</div>
+                                <div class="sm-form__drinks">
+                                    <div class="sm-form__drinks-check">
+                                        <label class="sm-form_checkbox">
+                                            <input class="sm-form_checkbox_input" type="radio" name="guests[0][drinks]" value="Алкогольные" checked>
+                                            <span class="sm-form_checkbox_box"></span>
+                                            <div>Алкогольные</div>
+                                        </label>
+                                        <label class="sm-form_checkbox">
+                                            <input class="sm-form_checkbox_input" type="radio" name="guests[0][drinks]" value="Безалкогольные">
+                                            <span class="sm-form_checkbox_box"></span>
+                                            <div>Безалкогольные</div>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Кнопка добавления еще одного гостя -->
+                    <div style="margin-bottom: 20px; text-align: center;">
+                        <button type="button" id="addGuestBtn" class="sm-btn" style="background: transparent; border: 1px dashed currentColor; cursor: pointer;">
+                            + Добавить еще человека
+                        </button>
+                    </div>
+
                     <div class="item-animation item-atop">
-                        <button class="sm-btn text-paint-text" data-sm-anketa-send="1">Подтвердить</button>
+                        <button type="submit" class="sm-btn text-paint-text" data-sm-anketa-send="1">Подтвердить</button>
                     </div>
                 </form>
             </div>
@@ -1427,6 +1437,75 @@ document.addEventListener('DOMContentLoaded', () => {
   const timerInterval = setInterval(updateTimer, 1000);
 });
 
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const guestsList = document.getElementById('guestsList');
+    const addGuestBtn = document.getElementById('addGuestBtn');
+    let guestCounter = 1;
+
+    addGuestBtn.addEventListener('click', () => {
+        const guestIndex = guestCounter++;
+        const guestBlock = document.createElement('div');
+        guestBlock.className = 'sm-guest-card';
+        guestBlock.dataset.guestIndex = guestIndex;
+        guestBlock.style.cssText = 'margin-bottom: 25px; border-bottom: 1px dashed rgba(0,0,0,0.15); padding-bottom: 20px; position: relative;';
+
+        guestBlock.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <strong>Гость №${guestIndex + 1}</strong>
+                <button type="button" class="remove-guest-btn" style="background: none; border: none; color: #ff4d4f; font-size: 14px; cursor: pointer;">Удалить</button>
+            </div>
+
+            <div class="sm-form__block">
+                <div class="sm-form__block__title">Имя и Фамилия гостя</div>
+                <input class="sm-form__input" type="text" placeholder="Имя и фамилия гостя" name="guests[${guestIndex}][name]" required>
+            </div>
+
+            <div class="sm-form__block">
+                <div class="sm-form__block__title">Планируете ли присутствовать?</div>
+                <div class="sm-form__item">
+                    <label class="sm-form_checkbox">
+                        <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][presence]" value="Да" checked>
+                        <span class="sm-form_checkbox_box"></span>
+                        <span>Да, с удовольствием</span>
+                    </label>
+                    <label class="sm-form_checkbox">
+                        <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][presence]" value="Нет">
+                        <span class="sm-form_checkbox_box"></span>
+                        <span>К сожалению, не смогу</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="sm-form__block">
+                <div class="sm-form__block__title">Предпочтения по напиткам:</div>
+                <div class="sm-form__drinks">
+                    <div class="sm-form__drinks-check">
+                        <label class="sm-form_checkbox">
+                            <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][drinks]" value="Алкогольные" checked>
+                            <span class="sm-form_checkbox_box"></span>
+                            <div>Алкогольные</div>
+                        </label>
+                        <label class="sm-form_checkbox">
+                            <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][drinks]" value="Безалкогольные">
+                            <span class="sm-form_checkbox_box"></span>
+                            <div>Безалкогольные</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Обработчик удаления карточки
+        guestBlock.querySelector('.remove-guest-btn').addEventListener('click', () => {
+            guestBlock.remove();
+        });
+
+        guestsList.appendChild(guestBlock);
+    });
+});
 </script>
 
 </body></html>
