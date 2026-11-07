@@ -1033,10 +1033,10 @@
                         </div>
 
                         <div class="sm-form__block">
-                            <div class="sm-form__block__title" data-sm-text="ANKETA_QUESTION">Планируете ли Вы присутствовать?</div>
+                          <div class="sm-form__block__title" data-sm-text="ANKETA_QUESTION">Планируете ли Вы присутствовать?</div>
                             <div class="sm-form__item">
                                 <label class="sm-form_checkbox">
-                                    <input class="sm-form_checkbox_input" type="radio" name="guests[0][presence]" value="Да" checked>
+                                    <input class="sm-form_checkbox_input" type="radio" name="guests[0][presence]" value="Да">
                                     <span class="sm-form_checkbox_box"></span>
                                     <span data-sm-text="ANKETA_ANSWER1">Да, с удовольствием</span>
                                 </label>
@@ -1049,21 +1049,30 @@
                         </div>
 
                         <div class="sm-form__block" data-sm-anketa-toggle="">
-                            <div class="sm-form__block__title">Ваши предпочтения по напиткам:</div>
-                            <div class="sm-form__drinks">
-                                <div class="sm-form__drinks-check">
-                                    <label class="sm-form_checkbox">
-                                        <input class="sm-form_checkbox_input" type="radio" name="guests[0][drinks]" value="Алкогольные" checked>
-                                        <span class="sm-form_checkbox_box"></span>
-                                        <div>Алкогольные</div>
-                                    </label>
-                                    <label class="sm-form_checkbox">
-                                        <input class="sm-form_checkbox_input" type="radio" name="guests[0][drinks]" value="Безалкогольные">
-                                        <span class="sm-form_checkbox_box"></span>
-                                        <div>Безалкогольные</div>
-                                    </label>
-                                </div>
-                            </div>
+                           <div class="sm-form__block__title">Ваши предпочтения по напиткам:</div>
+<div class="sm-form__drinks">
+    <!-- Стили, делающие контур и внутреннюю точку круглыми -->
+    <style>
+        .sm-form__drinks .sm-form_checkbox_box,
+        .sm-form__drinks .sm-form_checkbox_box::after,
+        .sm-form__drinks .sm-form_checkbox_box::before {
+            border-radius: 50% !important;
+        }
+    </style>
+
+    <div class="sm-form__drinks-check sm-form_presence">
+        <label class="sm-form_checkbox">
+            <input class="sm-form_checkbox_input" type="radio" name="guests[0][drinks]" value="Алкогольные">
+            <span class="sm-form_checkbox_box" style="border-radius: 50% !important;"></span>
+            <div>Алкогольные</div>
+        </label>
+        <label class="sm-form_checkbox">
+            <input class="sm-form_checkbox_input" type="radio" name="guests[0][drinks]" value="Безалкогольные">
+            <span class="sm-form_checkbox_box" style="border-radius: 50% !important;"></span>
+            <div>Безалкогольные</div>
+        </label>
+    </div>
+</div>
                         </div>
 
                         <!-- Важное примечание только в первой анкете -->
