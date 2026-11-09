@@ -703,7 +703,7 @@
     </div>
 
     <div class="item-animation item-atop building-text">
-        Дорогие гости! Приглашаем Вас разделить с нами самый волнительный момент — официальную регистрацию нашего брака. Пожалуйста, приезжайте немного заранее, чтобы мы все успели встретиться. Будем ждать Вас во Дворце!
+        Дорогие гости! Приглашаем Вас разделить с нами самый волнительный момент — официальную регистрацию нашего союза. Пожалуйста, приезжайте немного заранее, чтобы мы все успели встретиться. Будем ждать Вас во Дворце!
     </div>
 </section>
 
@@ -783,9 +783,11 @@
 
     </div>
 
-    <div class="item-animation item-atop building-text">
-        Наша свадьба продолжится на борту теплохода! Мы отправимся в небольшое путешествие по каналам и рекам любимого города. Для Вас будет организован фуршет с закусками и напитками. Просим Вас собраться на причале строго к 16:45, так как теплоход отправится по расписанию. После завершения вечера мы отправимся в аэропорт, чтобы улететь в наше свадебное путешествие. Будем рады, если Вы проводите нас и пожелаете нам счастливого пути!
-    </div>
+   <div class="item-animation item-atop building-text">
+    <p style="margin-bottom: 14px;">Наша свадьба продолжится на борту теплохода! Мы отправимся в небольшое путешествие по каналам и рекам любимого города. Для Вас будет организован фуршет с закусками и напитками.</p>
+    <p style="margin-bottom: 14px;">Просим Вас собраться на причале строго к 16:45, так как теплоход отправится по расписанию.</p>
+    <p style="margin-bottom: 0;">После завершения вечера мы отправимся в аэропорт, чтобы улететь в наше свадебное путешествие. Будем рады, если Вы проводите нас и пожелаете нам счастливого пути!</p>
+</div>
 </section>
     <!-- /section -->
 
@@ -1084,13 +1086,88 @@
                     </div>
                 </div>
 
-                <!-- Кнопка добавления еще одного гостя -->
-                <div class="item-animation item-atop" style="margin-bottom: 20px;">
-                    <button type="button" id="addGuestBtn" class="sm-btn text-paint-text">
-                        + Добавить еще человека
-                    </button>
-                </div>
+                <!-- 1. Ваша существующая кнопка -->
+<div class="item-animation item-atop" style="margin-bottom: 20px;">
+    <button type="button" id="addGuestBtn" class="sm-btn text-paint-text">
+        + Добавить еще человека
+    </button>
+</div>
 
+<!-- 2. СРАЗУ ПОД НЕЙ ВСТАВЛЯЕТЕ ЭТОТ КОМПЛЕКТ: -->
+
+<style>
+    /* Делает кружочками все переключатели во всех анкетах */
+    .sm-form_checkbox_input[type="radio"] + .sm-form_checkbox_box,
+    .sm-form_checkbox_input[type="radio"] + .sm-form_checkbox_box::after,
+    .sm-form_checkbox_input[type="radio"] + .sm-form_checkbox_box::before {
+        border-radius: 50% !important;
+    }
+</style>
+
+<script>
+    let guestIndex = 1;
+
+    document.getElementById('addGuestBtn').addEventListener('click', function() {
+        const guestsList = document.getElementById('guestsList');
+        
+        const guestBlock = document.createElement('div');
+        guestBlock.className = 'sm-guest-card item-animation item-atop item-active';
+        guestBlock.setAttribute('data-guest-index', guestIndex);
+        guestBlock.style.cssText = 'margin-bottom: 25px; border-bottom: 1px dashed rgba(0,0,0,0.15); padding-bottom: 20px;';
+
+        guestBlock.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div class="sm-form__block__title" style="margin-bottom: 0;">Гость №${guestIndex + 1}</div>
+                <button type="button" onclick="this.closest('.sm-guest-card').remove()" style="background: none; border: none; color: #b82506; font-size: 14px; text-decoration: underline; cursor: pointer; padding: 0;">Удалить</button>
+            </div>
+
+            <!-- Точная копия вашего блока с полем ввода имени -->
+            <div class="sm-form__block">
+                <div class="sm-form__block__title">Ваше Имя и Фамилия</div>
+                <input class="sm-form__input" type="text" placeholder="Ваше имя и фамилия" name="guests[${guestIndex}][name]" data-sm-anketa-name="" required>
+            </div>
+
+            <!-- Блок с присутствием (пустые кружочки) -->
+            <div class="sm-form__block">
+                <div class="sm-form__block__title">Планируете ли Вы присутствовать?</div>
+                <div class="sm-form__item sm-form_presence">
+                    <label class="sm-form_checkbox">
+                        <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][presence]" value="Да">
+                        <span class="sm-form_checkbox_box" style="border-radius: 50% !important;"></span>
+                        <span>Да, с удовольствием</span>
+                    </label>
+                    <label class="sm-form_checkbox">
+                        <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][presence]" value="Нет">
+                        <span class="sm-form_checkbox_box" style="border-radius: 50% !important;"></span>
+                        <span>К сожалению, не смогу</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Блок с предпочтениями по напиткам (пустые кружочки) -->
+            <div class="sm-form__block">
+                <div class="sm-form__block__title">Ваши предпочтения по напиткам:</div>
+                <div class="sm-form__drinks">
+                    <div class="sm-form__drinks-check sm-form_presence">
+                        <label class="sm-form_checkbox">
+                            <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][drinks]" value="Алкогольные">
+                            <span class="sm-form_checkbox_box" style="border-radius: 50% !important;"></span>
+                            <div>Алкогольные</div>
+                        </label>
+                        <label class="sm-form_checkbox">
+                            <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][drinks]" value="Безалкогольные">
+                            <span class="sm-form_checkbox_box" style="border-radius: 50% !important;"></span>
+                            <div>Безалкогольные</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        guestsList.appendChild(guestBlock);
+        guestIndex++;
+    });
+</script>
                 <div class="item-animation item-atop">
                     <button type="submit" class="sm-btn text-paint-text" data-sm-anketa-send="1">Подтвердить</button>
                 </div>
@@ -1632,75 +1709,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const timerInterval = setInterval(updateTimer, 1000);
 });
 
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const guestsList = document.getElementById('guestsList');
-    const addGuestBtn = document.getElementById('addGuestBtn');
-    let guestCounter = 1;
-
-    addGuestBtn.addEventListener('click', () => {
-        const guestIndex = guestCounter++;
-        const guestBlock = document.createElement('div');
-        guestBlock.className = 'sm-guest-card';
-        guestBlock.dataset.guestIndex = guestIndex;
-        guestBlock.style.cssText = 'margin-bottom: 25px; border-bottom: 1px dashed rgba(0,0,0,0.15); padding-bottom: 20px; position: relative;';
-
-        guestBlock.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <strong>Гость №${guestIndex + 1}</strong>
-                <button type="button" class="remove-guest-btn" style="background: none; border: none; color: #ff4d4f; font-size: 14px; cursor: pointer;">Удалить</button>
-            </div>
-
-            <div class="sm-form__block">
-                <div class="sm-form__block__title">Имя и Фамилия гостя</div>
-                <input class="sm-form__input" type="text" placeholder="Имя и фамилия гостя" name="guests[${guestIndex}][name]" required>
-            </div>
-
-            <div class="sm-form__block">
-                <div class="sm-form__block__title">Планируете ли присутствовать?</div>
-                <div class="sm-form__item">
-                    <label class="sm-form_checkbox">
-                        <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][presence]" value="Да" checked>
-                        <span class="sm-form_checkbox_box"></span>
-                        <span>Да, с удовольствием</span>
-                    </label>
-                    <label class="sm-form_checkbox">
-                        <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][presence]" value="Нет">
-                        <span class="sm-form_checkbox_box"></span>
-                        <span>К сожалению, не смогу</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="sm-form__block">
-                <div class="sm-form__block__title">Предпочтения по напиткам:</div>
-                <div class="sm-form__drinks">
-                    <div class="sm-form__drinks-check">
-                        <label class="sm-form_checkbox">
-                            <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][drinks]" value="Алкогольные" checked>
-                            <span class="sm-form_checkbox_box"></span>
-                            <div>Алкогольные</div>
-                        </label>
-                        <label class="sm-form_checkbox">
-                            <input class="sm-form_checkbox_input" type="radio" name="guests[${guestIndex}][drinks]" value="Безалкогольные">
-                            <span class="sm-form_checkbox_box"></span>
-                            <div>Безалкогольные</div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        // Обработчик удаления карточки
-        guestBlock.querySelector('.remove-guest-btn').addEventListener('click', () => {
-            guestBlock.remove();
-        });
-
-        guestsList.appendChild(guestBlock);
-    });
-});
 </script>
 
 </body></html>
