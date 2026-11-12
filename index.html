@@ -402,6 +402,90 @@
                 </div>
             </div>
 
+  <style>
+    /* Стили для плавающей кнопки в правом нижнем углу */
+    .music-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-family: sans-serif;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
+      z-index: 1000;
+      opacity: 0.5;
+    }
+
+    .music-btn:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
+  </style>
+
+  <!-- Аудиоплеер без видимых стандартных элементов управления -->
+  <!-- loop означает, что трек будет играть по кругу -->
+  <audio id="bg-music" src="assets/city312.mp3" autoplay loop></audio>
+
+  <!-- Кнопка управления -->
+  <button id="music-toggle" class="music-btn">🔊 Выключить музыку</button>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('music-toggle');
+
+    // Устанавливаем комфортную громкость (от 0.0 до 1.0)
+    music.volume = 0.5;
+
+    // Функция обновления текста кнопки
+    function updateButtonText() {
+      if (music.paused) {
+        toggleBtn.textContent = '🔇 Включить музыку';
+      } else {
+        toggleBtn.textContent = '🔊 Выключить музыку';
+      }
+    }
+
+    // Попытка запустить музыку сразу при открытии страницы
+    window.addEventListener('load', () => {
+      music.play().then(() => {
+        updateButtonText();
+      }).catch(() => {
+        console.log("Blocked!!!");
+        // Если браузер заблокировал автозапуск, меняем текст кнопки
+        updateButtonText();
+        
+        // Запускаем музыку при первом клике в любом месте страницы
+        const startOnInteraction = () => {
+          music.play().then(() => {
+            updateButtonText();
+          }).catch(() => {});
+          document.removeEventListener('click', startOnInteraction);
+        };
+        
+        document.addEventListener('click', startOnInteraction);
+      });
+    });
+
+    // Включение и выключение по нажатию на саму кнопку
+    toggleBtn.addEventListener('click', (event) => {
+      // Останавливаем всплытие события, чтобы не сработал общий клик по странице
+      event.stopPropagation();
+
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+      updateButtonText();
+    });
+  </script>
+
             <div class="sm-main__content sm-shared__content">
                 <div class="sm-main__image sm-shared__images">
                     <div class="decor-heart-1 item-animation item-abottom item-active">
